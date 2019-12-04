@@ -3,7 +3,7 @@
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
-    date: 'Nov 5th, 2018',
+    date: "Nov 5th, 2018",
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
         moff wicket tatooine luke.Solo wampa wampa calrissian yoda moff.Darth grievous darth gonk darth hutt.Darth baba skywalker
         watto fett jango maul han.Mon ewok sidious sidious lando kenobi grievous gamorrean solo.Yoda wedge utapau darth calamari.
@@ -23,8 +23,8 @@ const data = [
         moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
   },
   {
-    title: 'Javascript and You, ES6',
-    date: 'May 7th, 2019',
+    title: "Javascript and You, ES6",
+    date: "May 7th, 2019",
     firstParagraph: `Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost
         Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot
         snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods
@@ -43,8 +43,8 @@ const data = [
         sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
   },
   {
-    title: 'React vs Angular vs Vue',
-    date: 'June 7th, 2019',
+    title: "React vs Angular vs Vue",
+    date: "June 7th, 2019",
     firstParagraph: `Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard Lorem ipsum dolor sit amet,
@@ -71,8 +71,8 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
-    title: 'Professional Software Development in 2019',
-    date: 'Jan 1st, 2019',
+    title: "Professional Software Development in 2019",
+    date: "Jan 1st, 2019",
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
           Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
@@ -85,6 +85,50 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Fake It Till You Make It",
+    date: "October 30, 2019",
+    firstParagraph: `Man am I garbage. Somebody once told me the world is gonna roll me
+    I ain't the sharpest tool in the shed
+    She was looking kind of dumb with her finger and her thumb
+    In the shape of an "L" on her forehead
+    Well the years start coming and they don't stop coming
+    Fed to the rules and I hit the ground running
+    Didn't make sense not to live for fun
+    Your brain gets smart but your head gets dumb
+    So much to do, so much to see
+    So what's wrong with taking the back streets?
+    You'll never know if you don't go Hey now, you're an all-star, get your game on, go play
+    Hey now, you're a rock star, get the show on, get paid
+    And all that glitters is gold
+    Only shooting stars break the mold
+    It's a cool place and they say it gets colder
+    You're bundled…`,
+
+    secondParagraph: `Hey now, you're an all-star, get your game on, go play
+    Hey now, you're a rock star, get the show on, get paid
+    And all that glitters is gold
+    Only shooting stars break the mold
+    It's a cool place and they say it gets colder
+    You're bundled… Hey now, you're an all-star, get your game on, go play
+    Hey now, you're a rock star, get the show on, get paid
+    And all that glitters is gold
+    Only shooting stars break the mold
+    It's a cool place and they say it gets colder
+    You're bundled…`,
+
+    thirdParagraph: `Hey now, you're an all-star, get your game on, go play
+    Hey now, you're a rock star, get the show on, get paid
+    And all that glitters is gold
+    Only shooting stars break the mold
+    It's a cool place and they say it gets colder
+    You're bundled…Hey now, you're an all-star, get your game on, go play
+    Hey now, you're a rock star, get the show on, get paid
+    And all that glitters is gold
+    Only shooting stars break the mold
+    It's a cool place and they say it gets colder
+    You're bundled…`
   }
 ];
 
@@ -107,8 +151,75 @@ const data = [
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data, creating a component for each object and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+const articlesDiv = document.querySelector(".articles");
+
+data.map(data => {
+  articlesDiv.appendChild(
+    createArticle(
+      data.title,
+      data.date,
+      data.firstParagraph,
+      data.secondParagraph,
+      data.thirdParagraph
+    )
+  );
+});
+
+function createArticle(
+  title,
+  date,
+  firstParagraph,
+  secondParagraph,
+  thirdParagraph
+) {
+  //elements conception
+
+  const article = document.createElement("div");
+  const articleTitle = document.createElement("h2");
+  const articleDate = document.createElement("p");
+  const par1 = document.createElement("p");
+  const par2 = document.createElement("p");
+  const par3 = document.createElement("p");
+  const btn = document.createElement("span");
+  // const btn2 = document.createElement("span");
+
+  //element parts assembly
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(btn);
+  // article.appendChild(btn2);
+
+  //element features
+
+  article.classList.add("article");
+  articleDate.classList.add("date");
+  btn.classList.add("expandButton");
+  // btn2.classList.add("expandButton", "close");
+
+  //elements soul
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  par1.textContent = firstParagraph;
+  par2.textContent = secondParagraph;
+  par3.textContent = thirdParagraph;
+  btn.textContent = "more";
+  // btn2.textContent = "less";
+
+  //hide the baby
+  btn.addEventListener("click", () => {
+    article.classList.toggle("article-open");
+  });
+  //component birth
+
+  return article;
+}
